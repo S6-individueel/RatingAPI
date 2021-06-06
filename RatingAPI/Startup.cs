@@ -1,5 +1,6 @@
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.Azure.ServiceBus;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -7,6 +8,7 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.OpenApi.Models;
 using RatingAPI.Models;
 using RatingAPI.RatingData;
+using RatingAPI.Services;
 
 namespace RatingAPI
 {
@@ -28,6 +30,11 @@ namespace RatingAPI
             Configuration.GetConnectionString("DefaultConnection")));
 
             services.AddScoped<IRatingData, SqlRatingData>();
+
+            services.AddHostedService<MessageConsumer>();
+
+            services.AddSingleton<ISubscriptionClient>(x =>
+            new SubscriptionClient(Configuration.GetConnectionString("AzureServiceBus"), "deleteuser", "DeleteUserRatingSubscription"));
 
             services.AddSwaggerGen(c =>
             {

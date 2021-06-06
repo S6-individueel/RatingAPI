@@ -81,5 +81,14 @@ namespace RatingAPI.RatingData
         {
             return _ratingsContext.Ratings.Find(id);
         }
+
+        public void DeleteRatings(Guid id)
+        {
+            foreach (var comment in _ratingsContext.Ratings.Where(r => r.UserId == id))
+            {
+                _ratingsContext.Remove(comment);
+                _ratingsContext.SaveChanges();
+            }
+        }
     }
 }

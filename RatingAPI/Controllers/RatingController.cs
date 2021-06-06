@@ -98,10 +98,5 @@ namespace RatingAPI.Controllers
             }
             return NotFound($"Ratings for the user with id: {id} was not found");
         }
-
-        public IActionResult Index()
-        {
-            return View();
-        }
     }
 }

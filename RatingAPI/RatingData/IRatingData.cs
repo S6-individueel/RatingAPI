@@ -18,6 +18,8 @@ namespace RatingAPI.RatingData
 
         void DeleteRating(Rating rating);
 
+        void DeleteRatings(Guid id);
+
         Rating ModifyRating(Rating rating);
     }
 }
