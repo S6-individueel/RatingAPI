@@ -71,7 +71,7 @@ stages:
             inputs:
               action: deploy
               manifests: |
-                $(Pipeline.Workspace)/manifests/ratingapi.ymal
+                $(Pipeline.Workspace)/manifests/ratingapi.yaml
               imagePullSecrets: |
                 $(imagePullSecret)
               containers: |
