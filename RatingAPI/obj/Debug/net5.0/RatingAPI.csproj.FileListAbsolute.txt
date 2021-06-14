@@ -74,3 +74,4 @@ C:\Users\Freaqke\Desktop\S6-individueel\RatingAPI\RatingAPI\bin\Debug\net5.0\Mic
 C:\Users\Freaqke\Desktop\S6-individueel\RatingAPI\RatingAPI\bin\Debug\net5.0\Microsoft.Azure.Services.AppAuthentication.dll
 C:\Users\Freaqke\Desktop\S6-individueel\RatingAPI\RatingAPI\bin\Debug\net5.0\Microsoft.IdentityModel.Clients.ActiveDirectory.Platform.dll
 C:\Users\Freaqke\Desktop\S6-individueel\RatingAPI\RatingAPI\bin\Debug\net5.0\Microsoft.IdentityModel.Clients.ActiveDirectory.dll
+C:\Users\Freaqke\Desktop\S6-individueel\RatingAPI\RatingAPI\bin\Debug\net5.0\Pomelo.EntityFrameworkCore.MySql.dll

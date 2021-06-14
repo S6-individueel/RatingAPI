@@ -26,8 +26,9 @@ namespace RatingAPI
         {
             services.AddControllers();
 
-            services.AddDbContextPool<RatingsContext>(options => options.UseMySQL(
-            Configuration.GetConnectionString("DefaultConnection")));
+            var connection = Configuration["MYSQL_DBCONNECTION"] ?? Configuration.GetConnectionString("DefaultConnection");
+
+            services.AddDbContextPool<RatingsContext>(options => options.UseMySQL(connection));
 
             services.AddScoped<IRatingData, SqlRatingData>();
 
@@ -43,7 +44,7 @@ namespace RatingAPI
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
+        public void Configure(IApplicationBuilder app, IWebHostEnvironment env, RatingsContext context)
         {
             if (env.IsDevelopment())
             {
@@ -62,6 +63,7 @@ namespace RatingAPI
             {
                 endpoints.MapControllers();
             });
+            context.Database.Migrate();
         }
     }
 }
